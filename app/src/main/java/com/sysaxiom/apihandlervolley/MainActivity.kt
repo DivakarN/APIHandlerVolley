@@ -14,10 +14,13 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
         getInterest()
-        var jsonObject = JSONObject()
-        jsonObject?.put(ApiConstants.postApiJsonName, ApiConstants.postApiJsonValue)
+        
+        val jsonObject = JSONObject()
+        jsonObject.put(ApiConstants.postApiJsonName, ApiConstants.postApiJsonValue)
         updateInterest(jsonObject.toString())
+
     }
 
     //region Sample Get request
