@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         getInterest()
-        
+
         val jsonObject = JSONObject()
         jsonObject.put(ApiConstants.postApiJsonName, ApiConstants.postApiJsonValue)
         updateInterest(jsonObject.toString())
