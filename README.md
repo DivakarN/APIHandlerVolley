@@ -1,8 +1,10 @@
-**Introduction:**
+# Api Handler Volley
+
+## Introduction:
 
 This project is created in the intention to understand the Api hanlders for android using volley library and make it as readily usable component to integrate it with any projects.
 
-**Installation:**
+## Installation:
 
 Step 1: Add the volley library dependency to the app build.gradle
 
@@ -30,18 +32,20 @@ Step 3: If you are using http protocal for api's, then add the below configurati
             </base-config>
         </network-security-config>
 
-**Handler Part:**
+## Handler Part:
 
 A static or companion object is implemented to invoke without object instantiation.
 
-(1) Get
+**(1) Get**
+
     getAyncNetworkCall - to get data from server through get api call.
 
-(2) Post
+**(2) Post**
+
     postAsyncNetworkCall - to post data to server through post api call.
 
 
-**Usage / Example:**
+## Usage / Example:
 
 Sample get and post call is given as regions where you can try/implement by invoking each function and seeing it in Console.
 
