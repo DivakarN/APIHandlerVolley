@@ -16,21 +16,23 @@ Step 2: Add the internet permission in the AndroidManifest.xml file.
 
 Step 3: If you are using http protocal for api's, then add the below configuration in the android studio project.
 
-   Step 3.1: Add the below configuration inside the application tag in AndroidManifest.xml file.
+   
+       Step 3.1: Add the below configuration inside the application tag in AndroidManifest.xml file.
 
-        android:networkSecurityConfig="@xml/network_security_config"
-        android:usesCleartextTraffic="true"
+            android:networkSecurityConfig="@xml/network_security_config"
+            android:usesCleartextTraffic="true"
 
-   Step 3.2:  Add the below content inside network_security_config.xml file and put it inside a res/xml path.
+   
+       Step 3.2:  Add the below content inside network_security_config.xml file and put it inside a res/xml path.
 
-        <?xml version="1.0" encoding="utf-8"?>
-        <network-security-config>
-            <base-config cleartextTrafficPermitted="true">
-                <trust-anchors>
-                    <certificates src="system" />
-                </trust-anchors>
-            </base-config>
-        </network-security-config>
+            <?xml version="1.0" encoding="utf-8"?>
+            <network-security-config>
+                <base-config cleartextTrafficPermitted="true">
+                    <trust-anchors>
+                        <certificates src="system" />
+                    </trust-anchors>
+                </base-config>
+            </network-security-config>
 
 ## Handler Part:
 
