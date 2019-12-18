@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.util.Log
 import com.sysaxiom.apihandlervolley.Handler.ApiHandler
 import com.sysaxiom.apihandlervolley.Handler.ServiceNetworkListener
+import com.sysaxiom.apihandlervolley.Utils.ApiConstants
+import com.sysaxiom.apihandlervolley.Utils.LogConstants
 import org.json.JSONObject
 
 class MainActivity : AppCompatActivity() {
@@ -14,45 +16,42 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         getInterest()
         var jsonObject = JSONObject()
-        jsonObject?.put("mobile", "9789926460")
+        jsonObject?.put(ApiConstants.postApiJsonName, ApiConstants.postApiJsonValue)
         updateInterest(jsonObject.toString())
     }
 
-    //Sample Get request
+    //region Sample Get request
     fun getInterest(){
         try {
-            val task_list_api = "http://focozon.com:3090/getInterest"
-            ApiHandler.getAyncNetworkCall(task_list_api, this, object : ServiceNetworkListener {
+            ApiHandler.getAyncNetworkCall(ApiConstants.getApi, this, object : ServiceNetworkListener {
                 override fun onError(message: String) {
-                    Log.d("Volley",message)
+                    Log.d(LogConstants.TAG,message)
                 }
 
                 override fun onResponse(response: JSONObject) {
-                    Log.d("Volley",response.toString())
+                    Log.d(LogConstants.TAG,response.toString())
                 }
             })
         } catch (e: Exception) {
-            Log.d("RapidTurnAround", e.toString())
+            Log.d(LogConstants.TAG, e.toString())
         }
+    } //endregion
 
-    }
-
-    //Sample post request
+    //region Sample post request
     fun updateInterest(jsonObject: String) {
         try {
-            val task_action_api = "http://focozon.com:3090/checkMobile"
-            ApiHandler.postAsyncNetworkCall(task_action_api, this, jsonObject, object :
-                ServiceNetworkListener {
+            ApiHandler.postAsyncNetworkCall(ApiConstants.postApi, this, jsonObject, object : ServiceNetworkListener {
                 override fun onError(message: String) {
-                    Log.d("JsonData", message)
+                    Log.d(LogConstants.TAG, message)
                 }
 
                 override fun onResponse(response: JSONObject) {
-                    Log.d("JsonData", response.toString())
+                    Log.d(LogConstants.TAG, response.toString())
                 }
             })
         } catch (e: Exception) {
-            Log.d("RapidTurnAround", e.toString())
+            Log.d(LogConstants.TAG, e.toString())
         }
-    }
+    }//endregion
+
 }

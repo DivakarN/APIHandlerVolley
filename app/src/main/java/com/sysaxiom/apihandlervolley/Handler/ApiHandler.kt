@@ -7,16 +7,18 @@ import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
+import com.sysaxiom.apihandlervolley.Utils.LogConstants
 import org.json.JSONObject
 import java.io.UnsupportedEncodingException
 import java.util.HashMap
 
 class ApiHandler {
+
     companion object {
-        //Getting Asynchoronous Get API Calls
+
+        //region Getting Asynchoronous Get API Calls
         fun getAyncNetworkCall(url: String, context: Context, listener: ServiceNetworkListener) {
             try {
-                val Url = url
                 val queue = Volley.newRequestQueue(context)
                 val jsonObjectRequest = JsonObjectRequest(Request.Method.GET, url, null,
                     Response.Listener { response ->
@@ -29,11 +31,11 @@ class ApiHandler {
                 queue.add(jsonObjectRequest)
 
             } catch (e: Exception) {
-                Log.d("RapidTurnAround", e.toString())
+                Log.d(LogConstants.TAG, e.toString())
             }
-        }
+        }//endregion
 
-        //Getting Asynchrounous Post API Calls
+        //region Getting Asynchrounous Post API Calls
         fun postAsyncNetworkCall(url: String, context: Context, requestBody: String?, listener: ServiceNetworkListener) {
             try {
                 val queue = Volley.newRequestQueue(context)
@@ -58,17 +60,19 @@ class ApiHandler {
                         try {
                             return requestBody?.toByteArray(charset("utf-8"))
                         } catch (e: UnsupportedEncodingException) {
-                            Log.d("RapidException", e.toString())
+                            Log.d(LogConstants.TAG, e.toString())
                             return null
                         }
                     }
                 }
                 queue.add(jsonObjectRequest)
             } catch (e: Exception) {
-                Log.d("RapidTurnAround", e.toString())
+                Log.d(LogConstants.TAG, e.toString())
             }
-        }
+        }//endregion
+
     }
+
 }
 
 interface ServiceNetworkListener {
