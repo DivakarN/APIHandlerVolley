@@ -1,4 +1,4 @@
-package com.sysaxiom.apihandlervolley.Utils
+package com.sysaxiom.apihandlervolley.utils
 
 class LogConstants{
     companion object{
@@ -8,8 +8,9 @@ class LogConstants{
 
 class ApiConstants{
     companion object{
-        const val getApi = "http://focozon.com:3090/getInterest"
-        const val postApi = "http://focozon.com:3090/checkMobile"
+        const val baseUrl = "http://172.16.4.26:3090/"
+        const val getApi = baseUrl+"getInterest"
+        const val postApi = baseUrl+"checkMobile"
         const val postApiJsonName = "mobile"
         const val postApiJsonValue = "9789926460"
     }

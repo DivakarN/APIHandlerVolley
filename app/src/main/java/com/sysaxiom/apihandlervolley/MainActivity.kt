@@ -3,10 +3,10 @@ package com.sysaxiom.apihandlervolley
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import com.sysaxiom.apihandlervolley.Handler.ApiHandler
-import com.sysaxiom.apihandlervolley.Handler.ServiceNetworkListener
-import com.sysaxiom.apihandlervolley.Utils.ApiConstants
-import com.sysaxiom.apihandlervolley.Utils.LogConstants
+import com.sysaxiom.apihandlervolley.handler.ApiHandler
+import com.sysaxiom.apihandlervolley.handler.ServiceNetworkListener
+import com.sysaxiom.apihandlervolley.utils.ApiConstants
+import com.sysaxiom.apihandlervolley.utils.LogConstants
 import org.json.JSONObject
 
 class MainActivity : AppCompatActivity() {
@@ -15,16 +15,16 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        getInterest()
+        sampleGetCall()
 
         val jsonObject = JSONObject()
         jsonObject.put(ApiConstants.postApiJsonName, ApiConstants.postApiJsonValue)
-        updateInterest(jsonObject.toString())
+        samplePostCall(jsonObject.toString())
 
     }
 
     //region Sample Get request
-    fun getInterest(){
+    fun sampleGetCall(){
         try {
             ApiHandler.getAyncNetworkCall(ApiConstants.getApi, this, object : ServiceNetworkListener {
                 override fun onError(message: String) {
@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity() {
     } //endregion
 
     //region Sample post request
-    fun updateInterest(jsonObject: String) {
+    fun samplePostCall(jsonObject: String) {
         try {
             ApiHandler.postAsyncNetworkCall(ApiConstants.postApi, this, jsonObject, object : ServiceNetworkListener {
                 override fun onError(message: String) {

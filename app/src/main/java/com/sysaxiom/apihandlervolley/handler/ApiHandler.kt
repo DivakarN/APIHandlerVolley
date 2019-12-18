@@ -1,4 +1,4 @@
-package com.sysaxiom.apihandlervolley.Handler
+package com.sysaxiom.apihandlervolley.handler
 
 import android.content.Context
 import android.util.Log
@@ -7,7 +7,7 @@ import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
-import com.sysaxiom.apihandlervolley.Utils.LogConstants
+import com.sysaxiom.apihandlervolley.utils.LogConstants
 import org.json.JSONObject
 import java.io.UnsupportedEncodingException
 import java.util.HashMap
