@@ -5,8 +5,6 @@ import android.os.Bundle
 import android.util.Log
 import com.sysaxiom.apihandlervolley.handler.ApiHandler
 import com.sysaxiom.apihandlervolley.handler.ServiceNetworkListener
-import com.sysaxiom.apihandlervolley.utils.ApiConstants
-import com.sysaxiom.apihandlervolley.utils.LogConstants
 import org.json.JSONObject
 
 class MainActivity : AppCompatActivity() {
@@ -18,7 +16,7 @@ class MainActivity : AppCompatActivity() {
         sampleGetCall()
 
         val jsonObject = JSONObject()
-        jsonObject.put(ApiConstants.postApiJsonName, ApiConstants.postApiJsonValue)
+        jsonObject.put("mobile", "9789926468")
         samplePostCall(jsonObject.toString())
 
     }
@@ -26,34 +24,34 @@ class MainActivity : AppCompatActivity() {
     //region Sample Get request
     fun sampleGetCall(){
         try {
-            ApiHandler.getAyncNetworkCall(ApiConstants.getApi, this, object : ServiceNetworkListener {
+            ApiHandler.getAyncNetworkCall("http://172.16.4.26:3090/getInterest", this, object : ServiceNetworkListener {
                 override fun onError(message: String) {
-                    Log.d(LogConstants.TAG,message)
+                    Log.d("APIHandlerVolley",message)
                 }
 
                 override fun onResponse(response: JSONObject) {
-                    Log.d(LogConstants.TAG,response.toString())
+                    Log.d("APIHandlerVolley",response.toString())
                 }
             })
         } catch (e: Exception) {
-            Log.d(LogConstants.TAG, e.toString())
+            Log.d("APIHandlerVolley", e.toString())
         }
     } //endregion
 
     //region Sample post request
     fun samplePostCall(jsonObject: String) {
         try {
-            ApiHandler.postAsyncNetworkCall(ApiConstants.postApi, this, jsonObject, object : ServiceNetworkListener {
+            ApiHandler.postAsyncNetworkCall("http://172.16.4.26:3090/checkMobile", this, jsonObject, object : ServiceNetworkListener {
                 override fun onError(message: String) {
-                    Log.d(LogConstants.TAG, message)
+                    Log.d("APIHandlerVolley", message)
                 }
 
                 override fun onResponse(response: JSONObject) {
-                    Log.d(LogConstants.TAG, response.toString())
+                    Log.d("APIHandlerVolley", response.toString())
                 }
             })
         } catch (e: Exception) {
-            Log.d(LogConstants.TAG, e.toString())
+            Log.d("APIHandlerVolley", e.toString())
         }
     }//endregion
 

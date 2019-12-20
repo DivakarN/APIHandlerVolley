@@ -7,7 +7,6 @@ import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
-import com.sysaxiom.apihandlervolley.utils.LogConstants
 import org.json.JSONObject
 import java.io.UnsupportedEncodingException
 import java.util.HashMap
@@ -31,7 +30,7 @@ class ApiHandler {
                 queue.add(jsonObjectRequest)
 
             } catch (e: Exception) {
-                Log.d(LogConstants.TAG, e.toString())
+                Log.d("APIHandlerVolley", e.toString())
             }
         }//endregion
 
@@ -60,14 +59,14 @@ class ApiHandler {
                         try {
                             return requestBody?.toByteArray(charset("utf-8"))
                         } catch (e: UnsupportedEncodingException) {
-                            Log.d(LogConstants.TAG, e.toString())
+                            Log.d("APIHandlerVolley", e.toString())
                             return null
                         }
                     }
                 }
                 queue.add(jsonObjectRequest)
             } catch (e: Exception) {
-                Log.d(LogConstants.TAG, e.toString())
+                Log.d("APIHandlerVolley", e.toString())
             }
         }//endregion
 
