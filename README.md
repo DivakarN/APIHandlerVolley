@@ -51,3 +51,7 @@ A static or companion object is implemented to invoke without object instantiati
 
 Sample get and post call is given as regions where you can try/implement by invoking each function and seeing it in Console.
 
+## Issues
+1. Constant's no need to be in Seperate File
+2. How about http & https , the handler will work for fine ? 
+3. How about JSON Parse , String Parse for Request & Response
